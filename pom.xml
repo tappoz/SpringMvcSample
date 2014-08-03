@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.tappoz</groupId>
     <artifactId>SpringMvcSample</artifactId>
-    <packaging>war</packaging>
     <version>1.0</version>
+    <packaging>war</packaging>
     <name>SpringMvcSample</name>
 
     <parent>
@@ -28,14 +28,33 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    <!--
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>4.0.3.RELEASE</version>
             <scope>test</scope>
         </dependency>
-
+    -->
 
         <dependency>
             <groupId>junit</groupId>
@@ -66,15 +85,23 @@
 
     <build>
         <plugins>
-        <!--
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            <!--
                 <configuration>
                     <finalName>SpringMvcSample</finalName>
                 </configuration>
+            -->
             </plugin>
-        -->
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+
         </plugins>
     </build>
 
