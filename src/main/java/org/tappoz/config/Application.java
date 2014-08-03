@@ -1,24 +1,42 @@
 package org.tappoz.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = "org.tappoz")
 @EnableAutoConfiguration
+@EnableWebMvc
 public class Application extends SpringBootServletInitializer {
+
+    private final static Logger log = LoggerFactory.getLogger(Application.class);
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
+
+        SpringApplicationBuilder springApplicationBuilder = application.sources(Application.class);
+
+
+        return springApplicationBuilder;
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(Application.class, args);
+        log.debug("~*~*~*~* BEGIN the beans provided by Spring Boot: ");
+        String[] beanNames = configurableApplicationContext.getBeanDefinitionNames();
+//        Arrays.sort(beanNames);
+        for (String beanName : beanNames) {
+            log.debug(beanName);
+        }
+        log.debug("~*~*~*~* END the beans provided by Spring Boot.");
     }
 
 }

@@ -32,8 +32,12 @@
 
     <logger name="org.tappoz" level="DEBUG" />
 
+    <!--
+    for the appender "FILESTATS" or any other kind of appender you might want
+    to define different logging levels...
     <logger name="stats" level="INFO">
         <appender-ref ref="FILESTAT" />
     </logger>
+    -->
 
 </configuration>

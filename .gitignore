@@ -22,7 +22,7 @@
 
 # Logs and databases #
 ######################
-*.log
+#*.log
 #*.sql
 *.sqlite
 *.idea
@@ -48,4 +48,4 @@ target/
 
 *.ipr
 
-jesse.iws
+*.iws
