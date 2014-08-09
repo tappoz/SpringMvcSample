@@ -3,6 +3,8 @@ package org.tappoz.dao;
 import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 import org.tappoz.bean.AvatarPlayer;
@@ -14,8 +16,10 @@ import com.google.common.collect.HashBiMap;
 
 @Repository
 public class DummyUserDao {
-	
-	public enum UserNamesEnum {
+
+    private final static Logger log = LoggerFactory.getLogger(DummyUserDao.class);
+
+    public enum UserNamesEnum {
 		mario,
 		luigi,
 		princessPeach,
@@ -75,5 +79,20 @@ public class DummyUserDao {
 		
 		return findUser(UserNamesEnum.getRandomUserNamesEnum().name());
 	}
+
+    public Boolean inspect(UserName inputAvatarBean) {
+
+        AvatarPlayer foundUser = null;
+        try {
+            foundUser = this.findUser(inputAvatarBean.getUserName());
+        } catch (Exception e) {
+            log.warn("For some reason the user can not be inspected, "
+                + "the exception message was: " + StringUtils.quote(e.getMessage())
+                + " the exception type was: " + StringUtils.quote(e.getClass().getSimpleName()));
+        }
+        // checking if the user has been found
+        return (foundUser != null);
+    }
+
 
 }

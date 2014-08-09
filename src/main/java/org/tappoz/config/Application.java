@@ -1,5 +1,7 @@
 package org.tappoz.config;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -7,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -23,9 +26,14 @@ public class Application extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 
         SpringApplicationBuilder springApplicationBuilder = application.sources(Application.class);
-
-
         return springApplicationBuilder;
+    }
+
+    @Bean
+    public ObjectMapper getObjectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        return objectMapper;
     }
 
     public static void main(String[] args) {

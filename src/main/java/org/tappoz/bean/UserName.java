@@ -20,8 +20,12 @@ public class UserName {
 	private UserName(String inputUserName) {
 		this.userName = inputUserName;
 	}
-	
-	public static UserName getNewInstance(String userName) {
+
+    // otherwise when deserializing: "com.fasterxml.jackson.databind.JsonMappingException: No suitable constructor found for type"
+    public UserName() {
+    }
+
+    public static UserName getNewInstance(String userName) {
 		if	(
 					StringUtils.containsNone(userName, FORBIDDEN_CHARACTERS)
 //			SQL stuff	&&	!Arrays.

@@ -2,9 +2,11 @@ package org.tappoz.bean;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.tappoz.config.CustomJacksonDateJsonSerializer;
+import org.tappoz.service.JsonDeserializationService;
 
 public class AvatarPlayer {
 
@@ -37,6 +39,10 @@ public class AvatarPlayer {
 
 	@Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        try {
+            return JsonDeserializationService.serializeThis(this);
+        } catch (JsonProcessingException e) {
+            return ToStringBuilder.reflectionToString(this);
+        }
     }
 }
