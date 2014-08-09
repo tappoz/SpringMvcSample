@@ -1,6 +1,3 @@
 http://localhost:8080/SpringMvcSample/dummyuser/getRandomUser
-http://localhost:8080/SpringMvcSample/printWelcome
-
-localhost:8080/SpringMvcSample/hello/printWelcome
-
-
+curl -X POST -d '{ "userName" : "testUserName" }' --header "Content-Type:application/json" --header "checkOnlyUserName:true" http://localhost:8080/SpringMvcSample/dummyUser/inspect
+curl -X POST -d '{ "userName" : "mario" }' --header "Content-Type:application/json" --header "checkOnlyUserName:true" http://localhost:8080/SpringMvcSample/dummyUser/inspect
