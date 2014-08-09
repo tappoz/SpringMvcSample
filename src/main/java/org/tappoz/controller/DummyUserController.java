@@ -32,6 +32,12 @@ public class DummyUserController {
     @Autowired
     private DummyUserDao dummyUserDao;
 
+    /**
+     *
+     * http://localhost:8080/SpringMvcSample/dummyuser/getRandomUser
+     *
+     * @return
+     */
     @RequestMapping (
             value = "/getRandomUser",
             method= RequestMethod.GET,

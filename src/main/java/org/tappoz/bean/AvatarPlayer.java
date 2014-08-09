@@ -2,7 +2,9 @@ package org.tappoz.bean;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.tappoz.config.CustomJacksonDateJsonSerializer;
 
 public class AvatarPlayer {
 
@@ -28,6 +30,7 @@ public class AvatarPlayer {
 	public String getDescription() {
 		return description;
 	}
+    @JsonSerialize(using = CustomJacksonDateJsonSerializer.class)
 	public Date getWhenCreated() {
 		return whenCreated;
 	}
