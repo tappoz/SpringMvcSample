@@ -40,7 +40,6 @@ public class Application extends SpringBootServletInitializer {
         ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(Application.class, args);
         log.debug("~*~*~*~* BEGIN the beans provided by Spring Boot: ");
         String[] beanNames = configurableApplicationContext.getBeanDefinitionNames();
-//        Arrays.sort(beanNames);
         for (String beanName : beanNames) {
             log.debug(beanName);
         }

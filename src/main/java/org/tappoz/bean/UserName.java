@@ -6,7 +6,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class UserName {
 
 	private static final String FORBIDDEN_CHARACTERS = " !@#$%\\/:*?\"<>|';";
-//	private static final String[] FORBIDDEN_SQL_CHARS = {"//", "/*", "*/"};
 	private String userName;
 
 	public String getUserName() {
@@ -28,7 +27,6 @@ public class UserName {
     public static UserName getNewInstance(String userName) {
 		if	(
 					StringUtils.containsNone(userName, FORBIDDEN_CHARACTERS)
-//			SQL stuff	&&	!Arrays.
 				&&	StringUtils.isNotBlank(userName)
 			) {
 			return new UserName(userName);
