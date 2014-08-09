@@ -1,0 +1,6 @@
+http://localhost:8080/SpringMvcSample/dummyuser/getRandomUser
+http://localhost:8080/SpringMvcSample/printWelcome
+
+localhost:8080/SpringMvcSample/hello/printWelcome
+
+
