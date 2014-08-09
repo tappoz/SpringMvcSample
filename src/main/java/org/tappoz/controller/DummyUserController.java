@@ -1,6 +1,5 @@
 package org.tappoz.controller;
 
-import com.google.common.net.HttpHeaders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,6 @@ import org.tappoz.bean.AvatarPlayer;
 import org.tappoz.bean.UserName;
 import org.tappoz.dao.DummyUserDao;
 import org.tappoz.service.ExceptionHandlingService;
-
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-
 
 @RequestMapping("/dummyUser")
 @Controller
