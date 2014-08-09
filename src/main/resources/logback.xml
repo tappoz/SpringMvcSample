@@ -13,10 +13,10 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logger.log.filePath}/tappoz.log</file>
+        <file>log/tappoz.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
-            <fileNamePattern>${logger.log.filePath}/tappoz-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>log/tappoz-%d{yyyy-MM-dd}.log</fileNamePattern>
             <!-- keep 90 days' worth of history -->
             <maxHistory>90</maxHistory>
         </rollingPolicy>
@@ -31,13 +31,5 @@
     </root>
 
     <logger name="org.tappoz" level="DEBUG" />
-
-    <!--
-    for the appender "FILESTATS" or any other kind of appender you might want
-    to define different logging levels...
-    <logger name="stats" level="INFO">
-        <appender-ref ref="FILESTAT" />
-    </logger>
-    -->
 
 </configuration>
